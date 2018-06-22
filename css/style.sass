@@ -1,0 +1,1097 @@
+$mobile: 375px
+$tablet: 768px
+$sml-desktop: 1024px
+$med-desktop: 1280px
+$lrg-desktop: 1440px
+$xlrg-desktop: 2560px
+
+$gray: #ccc
+
+$sans: 'Roboto Condensed', sans-serif
+$serif: 'Cormorant Garamond', serif
+
+
+/* #BASE START */
+/* HTML5 */
+header, footer, aside, nav, section, figure, main, article
+	display: block
+
+
+/* #BASE CONTENT */
+/* #HEADINGS */
+h1, h2, h3, h4, h5, h6
+	font-family: $serif
+	color: #000
+	letter-spacing: -.5px
+	font-style: italic
+
+h1
+	font-size: 3em
+	line-height: 1em
+
+h2
+	font-size: 2.25em
+	line-height: 1.1em
+
+h3
+	font-size: 1.5em
+	line-height: 1.2em
+
+h4
+	font-size: 1.3125em
+	line-height: 1.3em
+
+h5
+	font-size: 1.125em
+	line-height: 1.4em
+
+h6
+	font-size: 1em
+	line-height: 1.5em
+
+/* #PARAGRAPHS */
+p
+	font-weight: 300
+	margin: 0 0 .5em 0
+
+/* #LINKS */
+a
+	color: #000
+	text-decoration: none
+	text-transform: uppercase
+
+a:hover
+	color: #333
+	text-decoration: none
+
+/* #BODY */
+body
+	font-family: $sans
+	color: #000
+	margin: 0
+	padding: 0
+
+/* #IMAGES */
+img.scale-with-grid
+	max-width: 100%
+	height: auto
+
+
+
+/* --------------------------------- */
+/* #BASE LAYOUT */
+/* #MEDIA QUERIES */
+/* MOBILE */
+@media (min-width: $mobile)
+	body
+		font-size: 87.5%
+
+	.container
+		width: 92%
+		padding: 0 4%
+		margin: 0 auto
+
+
+/* MEDIUM TABLET */
+@media (min-width: $tablet)
+	body
+		font-size: 100%
+
+
+/* SMALL DESKTOP */
+@media (min-width: $sml-desktop)
+	body
+		font-size: 100% 
+
+
+/* MEDIUM DESKTOP */
+@media (min-width: $med-desktop)
+	body
+		font-size: 112.5%
+
+
+/* #GRID */
+@media (min-width: $tablet)
+	.column
+		float: left
+		margin-right: 8%
+
+	.column:last-child
+		margin-right: 0
+
+	.one-whole.column
+		width: 100%
+	
+	.one-half.column
+		width: 46%
+
+	.one-third.column
+		width: 28%
+	
+	.one-fourth.column
+		width: 19%
+
+	.one-sixth.column
+		width: 14%
+
+	.two-third.column
+		width: 64%
+
+	.column.centered
+		float: none
+		margin-left: auto
+		margin-right: auto
+
+
+/* #CLEARFIXES */
+.group:after, 
+.container:after,
+.row:after
+	content: ""
+	display: table
+	clear: both
+
+
+
+/* --------------------------------- */
+/* #BASE SITE */
+/* #SITE STRUCTURE */
+/* SIDE-NAVIGATION */
+.side-nav
+	position: fixed
+	height: 100%
+	width: 6.25vw
+	right: 0
+	top: 0
+	padding-top: 4%
+	background-color: #fff
+	z-index: 10
+
+	nav
+		ul
+			padding: 0
+			margin: 0
+	
+			li
+				display: block
+				position: relative
+				padding: 0
+				list-style: none
+	
+				a
+					display: block
+					margin: 0 auto
+					padding: 2em 13px
+					opacity: 1
+					
+					div
+						margin: auto
+						writing-mode: vertical-lr
+						transform: rotate(180deg)
+						transition: all .5s cubic-bezier(0.6,0,0.5,1)
+				
+				a:after
+					content: attr(data-text)
+					position: absolute
+					right: -15px
+					top: 50%
+					font-family: $serif
+					font-size: 4.5em
+					line-height: 66px
+					font-style: italic
+					text-transform: lowercase
+					transform: translateX(115%) translateY(-50%)
+					transition: all .5s cubic-bezier(0.6,0,0.5,1)
+	
+				a:hover:after
+					transform: translateX(-2.5%) translateY(-50%)
+	
+				a:hover 
+					div
+						opacity: 0
+						transform: translateX(3.125vw) rotate(180deg)
+	
+			li:first-child a
+				//padding-top: 0
+				margin-top: -2em
+	
+	.icons
+		position: absolute
+		left: 50%
+		bottom: 3.5%
+		transform: translate(-50%, -8%)
+
+		ul
+			padding: 0
+			margin: 0
+
+			li
+				display: block
+				padding: 0
+				list-style: none
+	
+				a
+					display: block
+					margin: 0 auto
+					padding: .5em 1.75em
+		
+		img.scale-with-grid
+			max-width: 35px
+
+@media (max-width: $mobile)
+	.side-nav
+		display: none
+		position: absolute
+		height: auto
+		width: 100%
+		padding-top: 0
+		background-color: #fff
+		z-index: 0
+		text-align: center
+
+		nav
+			ul
+				padding: 0
+				margin: 0
+
+				li
+					display: inline-block
+					position: relative
+					list-style: none
+
+					a
+						display: block
+						margin: 0
+						padding: 1.7em 10px 0 10px
+						opacity: 1
+
+						div
+							margin: 0
+							writing-mode: horizontal-tb
+							transform: rotate(0deg)
+							transition: all .5s cubic-bezier(0.6,0,0.5,1)
+
+					a:after
+						content: none
+
+					a:hover:after
+						transform: none
+
+					a:hover 
+						div
+							opacity: none
+							transform: none
+
+				li:first-child a
+					//padding-top: 0
+					margin-top: 0
+	
+		.icons
+			display: none
+			position: fixed
+			left: 50%
+			bottom: 0
+			transform: translateX(-50%)
+			background-color: #fff
+
+			ul
+				padding: 0
+				margin: 0
+
+				li
+					display: inline-block
+					padding: 0
+					list-style: none
+
+					a
+						display: block
+						margin: 0 auto
+						padding: .5em 1em
+
+			img.scale-with-grid
+				max-width: 30px
+
+/* MAIN */
+html, body, main
+	width: 100%
+	height: 100%
+
+body
+	overflow-y: hidden
+
+*
+	box-sizing: border-box
+
+section, span
+	width: 100%
+	opacity: 0
+	//display: none
+	//transform: scale(0)
+	//transform: matrix(0, 0, 0, 0, 0, 0)
+	
+	
+	&.active
+		opacity: 1
+		//display: block
+		//transform: scale(1)
+		//transform: matrix(1, 0, 0, 1, 0, 0)
+
+
+
+/* FIXED GRID */
+.fixedGrid
+	display: grid
+	position: fixed
+	width: 100%
+	min-height: 100%
+	grid-template-columns: repeat(8, 1fr)
+	grid-template-rows: repeat(8, 1fr)
+	background-color: transparent
+	text-align: center
+
+	.column1, .column3
+		grid-column: span 1
+
+	.column2
+		grid-column: span 6
+
+	.column1
+		border-right: 1px solid $gray
+
+	.column3
+		border-left: 1px solid $gray
+
+	.row1, .row3
+		grid-row: span 1
+
+	.row2
+		grid-row: span 6
+
+	.row1
+		display: flex
+		align-items: flex-end
+		justify-content: center
+		border-bottom: 1px solid $gray
+
+	.row3
+		border-top: 1px solid $gray
+
+	.box.row1.column1
+		position: relative
+		justify-content: flex-end
+
+		a
+			text-align: right
+			z-index: 10
+
+	.box.row3.column2
+		h3
+			margin: .75em 0
+	
+		a
+			background-color: $gray
+			font-size: .9em
+			letter-spacing: 1.5px
+			padding: .5em 1em
+	
+		a:before
+			content: '\2190'
+
+#logo-home
+	height: auto
+	width: 50%
+	margin: .6em .75em
+	z-index: 5
+
+
+@media (max-width: $mobile)
+	.fixedGrid
+		grid-template-rows: 50px auto auto auto auto auto auto 50px
+
+		.box.row2.column2
+			overflow-x: hidden
+			margin: 0 1em
+
+		.box.row3.column2
+			h3
+				margin: .4em 0
+
+	#logo-home
+		width: 72.5%
+		margin: .6em .5em
+
+
+
+/* NAV HOVER */
+.fixedGrid:before
+	content: ""
+	display: block
+	position: fixed
+	left: 0
+	top: 0
+	width: calc(93.75%)
+	height: 100%
+	background-color: rgba(255,255,255,.75)
+	opacity: 0
+	visibility: hidden
+	transition: all .5s cubic-bezier(0.6,0,0.5,1)
+	z-index: 2
+
+.navHovered:before
+	opacity: 1
+	visibility: visible
+
+@media (max-width: $mobile)
+	.fixedGrid:before
+		width: 100%
+
+@media (max-width: $tablet)
+	.navHovered:before
+		opacity: 0
+		display: none
+
+/* HOME */
+.box.row2.column2
+	position: relative
+	grid-row: span 6
+	display: flex
+	overflow-y: scroll
+	background-color: transparent
+	
+	section
+		position: absolute
+		top: 0
+
+	#home
+		position: absolute
+		top: 50%
+		left: 50%
+		padding: 0
+		transform: translate(-50%, -50%)
+		overflow-y: hidden
+
+		h1, h3, h6, p
+			margin: 0
+
+		h3
+			margin: 1em 0 .2em 0
+			font-style: normal
+
+		h6
+			margin-bottom: 1.75em
+			font-style: normal
+			font-weight: 300
+
+		p
+			line-height: 1.5em
+
+span.active
+	display: block
+		
+		
+
+/* PORTFOLIO GALLERY */
+.controls
+	display: flex
+	transition: all .5s ease
+	justify-content: space-between
+	width: 100%
+	padding: .6em .75%
+	z-index: 1
+
+.control-btn
+	font-family: $sans
+	color: #000
+	font-size: 1.125em
+	text-transform: uppercase
+	letter-spacing: 1.5px
+	background: none
+	border: none
+	padding: .25em 1em
+	transition: all .5s ease
+
+button.active
+	background-color: $gray
+
+.control-btn:focus
+	outline: none
+
+#gallery-thumbnails
+	display: flex
+	flex-flow: row wrap
+	justify-content: flex-start
+	//height: -webkit-fill-available
+
+.gallery-cell
+	position: relative
+	width: calc(95.5% /3)
+	height: max-content
+	padding: 0
+	margin: .75%
+	transform: scale(0)
+	transition: all 1s ease
+	text-align: right
+
+	a
+		display: grid
+		text-decoration: none
+		text-align: right
+
+.gallery-cell:focus
+	outline: none
+
+.scaled
+	transform: scale(1)
+
+.overlay
+	position: absolute
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+	height: 100%
+	width: 100%
+	opacity: 0
+	transition: .5s ease
+	background-color: #000
+
+.overlay-content
+	position: absolute
+	width: 100%
+	top: 50%
+	transform: translateY(-50%)
+	text-align: right
+
+	h2
+		margin: 0
+		color: #fff
+		font-weight: 400
+		text-transform: lowercase
+		letter-spacing: 1.5px
+
+	p
+		margin: .25em 0 .5em 0
+		color: #fff
+		font-weight: 300
+		text-transform: uppercase
+
+.gallery-cell:hover
+	.overlay
+		opacity: 1
+		transition: .5s
+
+
+
+/* PROJECT LAYOUT */
+@media (min-width: $med-desktop)
+	p
+		font-size: .75em
+	
+	.box.row2.column2.project-info
+		h3
+			font-size: 1em
+
+@media (min-width: $lrg-desktop)
+	p
+		font-size: 1em
+	
+	.box.row2.column2.project-info
+		h3
+			font-size: 1.5em
+
+
+
+/* PROJECT */
+.project-define
+	text-align: left
+	padding-bottom: 2em
+
+	.one-third
+		padding-left: 2em
+
+	.two-third
+		padding-right: 2em
+
+		img
+			padding-top: 1.2em
+
+h5.heading
+	font-family: $sans
+	font-style: normal    
+	text-transform: uppercase
+	margin-top: 1em
+	margin-bottom: .25em
+	
+h5.heading:first-child
+	margin-top: 0
+	
+p.info
+	padding-left: .6em
+	
+.one-half
+	padding-top: 2em
+	padding-bottom: 2em
+	text-align: left
+
+.one-half:first-child
+	padding-left: 2em
+
+.one-half:last-child
+	padding-right: 2em
+
+.one-whole
+	text-align: left
+
+
+/* REGAL */
+.drop-shadow
+	img
+		margin-bottom: 1em
+		box-shadow: 1px 1px 10px #f0f0f0
+
+.box.row3.column2 section#regal
+	position: fixed
+	left: 0
+	bottom: 2.65em
+
+
+/* AKL */
+.clientdoc
+	img
+		width: calc((100%-1em)/3.125)
+		margin-top: 1em
+		margin-right: .75em
+		margin-bottom: 3.25em
+		box-shadow: 1px 1px 10px #f0f0f0
+
+	a:last-child
+		img
+			margin-right: 0
+
+.sitemap
+	img
+		padding: 0 1em
+		margin-bottom: 2.25em
+		box-shadow: 1px 1px 10px #f0f0f0
+
+.web-page-grid
+	a
+		img
+			width: calc((100%-1em)/3.125)
+			margin-top: 1em
+			margin-right: .75em
+			margin-bottom: 2em
+			box-shadow: 1px 1px 10px #f0f0f0
+			vertical-align: text-top
+
+	a:nth-child(3n)
+		img
+			margin-right: 0
+
+.box.row3.column2 section#akl
+	position: fixed
+	left: 0
+	bottom: 2.65em
+
+
+/* ASPETTI */
+.aspetti
+	img.scale-with-grid
+		width: 70%
+
+.project-define
+	img
+		padding: 1.2em 1em
+		margin-bottom: 2em
+		box-shadow: 1px 1px 10px #f0f0f0
+
+.box.row3.column2 section#aspetti
+	position: fixed
+	left: 0
+	bottom: 2.65em
+
+/* NEXUS */
+.nexus
+	img.scale-with-grid
+		width: 70%
+
+a.top-link
+	position: absolute
+	top: 2em
+	right: 0
+	font-size: .9em
+	letter-spacing: 1.5px
+	padding: .5em 1em
+	border: 1px solid $gray
+	margin-right: 2em
+
+a.top-link:hover
+	background-color: $gray
+
+span.bold
+	font-family: $sans
+	font-style: normal
+	font-weight: 400
+	font-size: 1.125em
+	text-transform: uppercase
+	margin-top: 1em
+	margin-bottom: .25em
+	opacity: 1
+
+.images
+	img
+		padding: 1.2em 1em
+		margin-bottom: 2em
+		box-shadow: 1px 1px 10px #f0f0f0
+
+.swatch
+	margin-bottom: 2em
+
+	ul
+		list-style: none
+		padding: 0
+		margin: 0
+
+		li
+			display: inline-block
+			list-style: none
+			width: calc(100%/4.123)
+			height: 2em
+
+.color1
+	background-color: #3BACE0
+
+.color2
+	background-color: #0A1AAB
+
+.color3
+	background-color: #09277D
+
+.color4
+	background-color: #050028
+
+.color5
+	background-color: #FDFFE8
+
+.color6
+	background-color: #FDEBDF
+
+.color7
+	background-color: #FED6D7
+
+.color8
+	background-color: #F3367E
+
+.color9
+	background-color: #932157
+
+.color10
+	background-color: #67185A
+
+.color11
+	background-color: #4B0C5B
+
+.color12
+	background-image: -webkit-linear-gradient(left, #efd100 0, #e2a233 38%, #f0c328 60%, #fff1a3 86%, #ffe13e 100%);
+
+.video
+	padding-top: 2em
+	padding-bottom: 2em
+
+	h5
+		margin: 0 2em
+
+h5.link
+	display: inline-block
+	float: left
+	opacity: 1
+
+a.link-btn
+	display: inline-block
+	float: right
+	font-size: .9em
+	letter-spacing: 1.5px
+	padding: .5em 1em
+	border: 1px solid $gray
+	margin-right: 2em
+
+a.link-btn:hover
+	background-color: $gray
+	
+.video-ctn
+	width: 100%
+	padding: 2em 2em 0 2em
+	
+.box.row3.column2 section#nexus
+	position: fixed
+	left: 0
+	bottom: 2.65em
+
+
+
+/* ROTO */
+.roto
+	margin-top: 2em
+	
+.box.row3.column2 section#roto
+	position: fixed
+	left: 0
+	bottom: 2.65em
+
+
+/* FLORISTRY*/
+.floristry
+	img
+		width: 50%
+
+.two-third.column.right
+	padding-left: 2em
+	padding-right: 0
+
+.one-third.column.right
+	padding-left: 0
+	padding-right: 2em
+
+.floristry-swatch
+
+	ul
+		list-style: none
+		padding: 0
+		margin: 0
+
+		li
+			display: inline-block
+			list-style: none
+			width: calc(100%/5.139)
+			height: 2em
+
+.floristry-swatch
+	.color1
+		background-color: #fffde5
+
+	.color2
+		background-color: #fff78c
+
+	.color3
+		background-color: #e2e200
+
+	.color4
+		background-color: #efa891
+
+	.color5
+		background-color: #e05442
+
+	.color6
+		background-color: #352828
+
+	.color7
+		background-color: #b2bf8c
+
+	.color8
+		background-color: #758110
+
+	.color9
+		background-color: #47631e
+
+	.color10
+		background-color: #1f2429
+
+.design
+	padding: 0 2em 2em 2em
+
+h5.inset
+	padding-left: 2em
+	
+.box.row3.column2 section#floristry
+	position: fixed
+	left: 0
+	bottom: 2.65em
+
+
+/* STAMPS */
+.box.row3.column2 section#stamps
+	position: fixed
+	left: 0
+	bottom: 2.65em
+
+
+
+/* FOLD */
+.fold
+	img
+		width: 40%
+		margin: 10% 0
+
+.fold-swatch
+	ul
+		list-style: none
+		padding: 0
+		margin: 0
+
+		li
+			display: inline-block
+			list-style: none
+			width: calc(100%/3.125)
+			height: 2em
+
+.fold-swatch
+	.color1
+		background-color: #fffef8
+
+	.color2
+		background-color: #fff100
+
+	.color3
+		background-color: #242729
+
+	.color4
+		background-color: #d6d1ca
+
+	.color5
+		background-color: #fcc999
+
+	.color6
+		background-color: #ef4b24
+
+	.color7
+		background-color: #e4e5e6
+
+	.color8
+		background-color: #867e7c
+
+	.color9
+		background-color: #3b0357
+
+.fold-webpage-grid-two
+	padding-top: 2em
+
+	img
+		width: calc(100%/2.035)
+		margin-top: 1em
+		margin-right: .75em
+		margin-bottom: 0em
+		box-shadow: 1px 1px 10px #f0f0f0
+		vertical-align: text-top
+
+	a:last-child
+		img
+			margin-right: 0
+
+.fold-webpage-grid-three
+	padding-top: 4em
+
+	img
+		width: calc((100%-1em)/3.11)
+		margin-top: 1em
+		margin-right: .75em
+		margin-bottom: 2em
+		box-shadow: 1px 1px 10px #f0f0f0
+		vertical-align: text-top
+
+	a:nth-child(4n)
+		img
+			margin-right: 0
+
+	a:nth-child(7n)
+		img
+			margin-right: 0
+
+.fold-webpage-grid-three.cut
+	padding-top: 0
+
+	a:nth-child(3n)
+			img
+				margin-right: 0
+	
+.box.row3.column2 section#fold
+	position: fixed
+	left: 0
+	bottom: 2.65em
+
+
+/* URBAN GLAMOUR */
+.box.row3.column2 section#ug
+	position: fixed
+	left: 0
+	bottom: 2.65em
+
+
+/* BUENOS AIRES*/
+.ba
+	img.scale-with-grid
+		width: 55%
+
+.ba-grid
+	padding: 2em 2em 0 2em
+
+	img
+		width: calc(100%/4.3)
+		margin-top: 1em
+		margin-right: 1em
+		margin-bottom: 2em
+		box-shadow: 1px 1px 10px #f0f0f0
+		vertical-align: text-top
+
+	img:last-child
+		margin-right: 0
+
+.box.row3.column2 section#ba
+	position: fixed
+	left: 0
+	bottom: 2.65em
+
+
+/* ON THE STREET */
+.box.row3.column2 section#ots
+	position: fixed
+	left: 0
+	bottom: 2.65em
+
+
+/* MXM */
+.mxm
+	margin-top: 2em
+
+.box.row3.column2 section#mxm
+	position: fixed
+	left: 0
+	bottom: 2.65em
+
+
+/* CURATE */
+.box.row3.column2 section#curate
+	position: fixed
+	left: 0
+	bottom: 2.65em
+
+
+/* EQUALITY */
+.box.row3.column2 section#equality
+	position: fixed
+	left: 0
+	bottom: 2.65em
+
+
+/* ABOUT */
+#contact
+	position: absolute
+	top: 50%
+	padding: 0
+	transform: translateY(-50%)
+	overflow-y: hidden
+
+	h1, h3, h6, p
+		margin: 0
+
+	h3
+		margin: 1em 0 .2em 0
+		font-style: normal
+
+	h6
+		margin-bottom: 1.75em
+		font-style: normal
+		font-weight: 300
+
+	p
+		line-height: 1.5em
+
